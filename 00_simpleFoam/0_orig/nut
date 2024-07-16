@@ -1,0 +1,64 @@
+/* OpenFOAM nut file from SSIIM 2  plastic test                                    test  */
+
+FoamFile 
+{
+    version      2.0;
+    format       ascii;
+    class        volScalarField;
+    location     "0";
+    object       nut;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bedWall
+    {
+        type            nutURoughWallFunction;
+		value uniform 0;
+		roughnessHeight 0.00001;
+		roughnessConstant 0.5;
+		roughnessFactor 1;
+    }
+    leftSide
+    {
+        type            nutURoughWallFunction;
+		value uniform 0;
+		roughnessHeight 0.00001;
+		roughnessConstant 0.5;
+		roughnessFactor 1;
+    }
+    rightSide
+    {
+        type            nutURoughWallFunction;
+		value uniform 0;
+		roughnessHeight 0.00001;
+		roughnessConstant 0.5;
+		roughnessFactor 1;
+    }
+    freeSurface
+    {
+        type            zeroGradient;
+    }
+    inletWater
+    {
+        type            calculated;
+        value           uniform 0.0006878560113005978;
+    }
+    outletWater
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+

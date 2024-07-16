@@ -1,0 +1,60 @@
+/* OpenFOAM U file from SSIIM 2  plastic test                                    test  */
+
+/* Inlet area_x:       1.000000000000 m2, area_y:       0.000000000000 m2 */
+/* Outlet area1_x:       1.000000000000 m2, outlet area1_y:       0.000000000000 m2 (lower) */
+/* Outlet area2_x:       0.000000000000 m2, outlet area2_y:       0.000000000000 m2 (upper) */
+/* Use the area information when giving the velocities in the inlet and outlet */
+/* sections below, by computing the velocity as discharge divided by area.     */
+
+FoamFile 
+{
+    version      2.0;
+    format       ascii;
+    class        volVectorField;
+    object       U;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform (1 0 0);
+
+boundaryField
+{
+    freeSurface
+    {
+        type            slip;
+    }
+    bedWall
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    leftSide
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    rightSide
+    {
+        type            fixedValue;
+        value           uniform (0 0 0);
+    }
+    inletWater
+    {
+        type            fixedValue;
+        value           uniform (1.29 0 0);
+    }
+    outletWater
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+

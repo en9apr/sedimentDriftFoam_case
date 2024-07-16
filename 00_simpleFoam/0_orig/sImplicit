@@ -1,0 +1,51 @@
+/* OpenFOAM nut file from SSIIM 2  sandfangmodell - 1992-4-29                      title field  */
+
+FoamFile 
+{
+    version      2.0;
+    format       ascii;
+    class        volScalarField;
+    location     "0";
+    object       sImplicit;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 -1 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    bedWall
+    {
+        type            zeroGradient;
+    }
+    leftSide
+    {
+        type            zeroGradient;
+    }
+    rightSide
+    {
+        type            zeroGradient;
+    }
+    freeSurface
+    {
+        type            zeroGradient;
+    }
+    inletWater
+    {
+        type            zeroGradient;
+    }
+    outletWater
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+

@@ -1,0 +1,56 @@
+/* OpenFOAM k file from SSIIM 2  plastic test                                    test  */
+
+FoamFile 
+{
+    version      2.0;
+    format       ascii;
+    class        volScalarField;
+    location     "0";
+    object       k;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+
+internalField   uniform 0.0013204633500000001;
+
+boundaryField
+{
+    bedWall
+    {
+        type            kqRWallFunction;
+		value           uniform 0.0013204633500000001;
+    }
+    leftSide
+    {
+        type            kqRWallFunction;
+		value           uniform 0.0013204633500000001;
+    }
+    rightSide
+    {
+        type            kqRWallFunction;
+		value           uniform 0.0013204633500000001;
+    }
+    freeSurface
+    {
+        type            zeroGradient;
+    }
+    inletWater
+    {
+        type            fixedValue;
+        value           uniform 0.0013204633500000001;
+    }
+    outletWater
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+

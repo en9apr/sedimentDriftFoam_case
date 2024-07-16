@@ -1,0 +1,61 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version      2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      epsilon;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -3 0 0 0 0]; // turbulent kinetic energy dissipation rate in m^2/s^3
+
+internalField   uniform 0.00022813802409849448;
+
+boundaryField
+{
+    freeSurface
+    {
+        type            epsilonFreeSurface;
+		up				(0 0 1);
+		value           uniform 0.00022813802409849448;
+    }
+    bedWall
+    {
+        type            epsilonWallFunction;
+        value           uniform 0.00022813802409849448;
+    }
+    leftSide
+    {
+        type            epsilonWallFunction;
+        value           uniform 0.00022813802409849448;
+    }
+    rightSide
+    {
+        type            epsilonWallFunction;
+        value           uniform 0.00022813802409849448;
+    }
+    inletWater
+    {
+        type            fixedValue;
+        value           uniform 0.00022813802409849448;
+    }
+    outletWater
+    {
+        type            zeroGradient;
+    }
+    defaultFaces
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //

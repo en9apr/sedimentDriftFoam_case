@@ -1,0 +1,38 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      sedimentProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+particleSize  0.00030; // meters 
+
+fallVelocity (0 0 -0.040); // m/s
+
+roughness 0.00001;   // meters 
+
+shields 0.047; 
+
+schmidt 0.5; 
+
+implicitOn true;
+
+explicitOn true;
+
+concentrationRelativeTolerance 1e-5;
+
+freeSurfaceName "freeSurface";
+
+bedName "bedWall";
+
+// ************************************************************************* //
