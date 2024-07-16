@@ -51,15 +51,4 @@ maxCo    0.5;
 
 libs ("libturbulenceModels.so");
 
-functions
-{
-	abort
-	{
-		type    abort;
-		libs    ("libutilityFunctionObjects.so");
-		file    "finished.txt";
-		action  writeNow;
-	}
-}
-
 // ************************************************************************* //
